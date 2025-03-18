@@ -1,6 +1,8 @@
-<x-layout>
-    <x-slot:title>{{ $title }}</x-slot:title>
-    <h3 class="text-2xl text-red-500 font-bold">{{ $title }}<h3>
-    <h3 class="text-2xl text-red-500 inter-bold">{{ $title }}<h3>
-    <h3 class="text-2xl text-red-500 poppins-bold">{{ $title }}<h3>
-</x-layout>
+<x-admin-layout>
+    <x-navbar-admin></x-navbar-admin>
+    <div class="grid grid-cols-2 gap-6">
+        <x-pie-chart></x-pie-chart>
+        <x-column-chart></x-column-chart>
+        <x-dashboard-table></x-dashboard-table>
+    </div>
+</x-admin-layout>

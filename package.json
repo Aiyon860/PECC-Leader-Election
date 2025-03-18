@@ -7,7 +7,7 @@
         "build:dev": "vite build --mode development"
     },
     "devDependencies": {
-        "@tailwindcss/forms": "^0.5.2",
+        "@tailwindcss/forms": "^0.5.10",
         "alpinejs": "^3.4.2",
         "autoprefixer": "^10.4.2",
         "axios": "^1.6.4",
@@ -18,6 +18,9 @@
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.0.12",
-        "tailwindcss": "^4.0.12"
+        "apexcharts": "^3.46.0",
+        "flowbite": "^3.1.2",
+        "tailwindcss": "^4.0.12",
+        "vanilla-calendar-pro": "^3.0.3"
     }
 }
