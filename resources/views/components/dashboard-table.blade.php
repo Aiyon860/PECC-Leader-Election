@@ -3,7 +3,7 @@
         <div class="flex justify-between mb-4">
             <h5 class="leading-none text-3xl poppins-bold text-gray-900 pb-1">Voters List</h5>
         </div>
-        <div class="flex justify-between">
+        <div class="flex flex-col gap-2 lg:gap-0 lg:flex-row lg:justify-between">
             <div>
                 <button id="dropdownRadioButton" data-dropdown-toggle="dropdownRadio"
                     class="min-w-20 inline-flex items-center justify-between text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5"
@@ -76,7 +76,7 @@
                     </svg>
                 </div>
                 <input type="text" id="table-search"
-                    class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                    class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-full lg:w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="Search for voters">
             </div>
         </div>
@@ -240,43 +240,43 @@
                         </td>
                     </tr>
                 </tbody>
-            </table>
-            <div class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4"
-                aria-label="Table navigation">
-                <span class="text-sm poppins-normal text-gray-500 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span
-                        class="poppins-semibold text-gray-900">1-10</span> of <span
-                        class="poppins-semibold text-gray-900">1000</span> entries</span>
-                <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
-                    <li>
-                        <a href="#"
-                            class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700">Previous</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">1</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</a>
-                    </li>
-                    <li>
-                        <a href="#" aria-current="page"
-                            class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700">3</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">4</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">5</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700">Next</a>
-                    </li>
-                </ul>
-            </div>
+            </table>            
+            <div class="flex items-center flex-column flex-wrap md:flex-row gap-2 justify-between pt-4"
+                    aria-label="Table navigation">
+                    <span class="text-sm poppins-normal text-gray-500 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span
+                            class="poppins-semibold text-gray-900">1-10</span> of <span
+                            class="poppins-semibold text-gray-900">1000</span> entries</span>
+                    <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                        <li>
+                            <a href="#"
+                                class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700">Previous</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">1</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</a>
+                        </li>
+                        <li>
+                            <a href="#" aria-current="page"
+                                class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700">3</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">4</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">5</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700">Next</a>
+                        </li>
+                    </ul>
+                </div>
         </div>
     </div>
 </div>

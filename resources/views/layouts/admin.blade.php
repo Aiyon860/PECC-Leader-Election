@@ -22,18 +22,17 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <style>
+            [x-cloak] { display: none !important; }
+        </style>
     </head>
     <body class="poppins-regular antialiased bg-gray-100">
-        <header>
-            <nav>
-                @include("components.sidebar")
-            </nav>
-        </header>
-        <div class="min-h-screen w-full p-8">
+        <div class="min-h-screen w-full">
             <!-- Page Content -->
-            <main class="flex flex-col gap-8">
+            <x-navbar-admin>
                 {{ $slot }}
-            </main>
+            </x-navbar-admin>
         </div>
     </body>
 </html>

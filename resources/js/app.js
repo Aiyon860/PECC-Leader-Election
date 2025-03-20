@@ -1,14 +1,18 @@
 import "./bootstrap";
 import "flowbite/dist/flowbite.min.js";
-import ApexCharts from "apexcharts/dist/apexcharts.min.js";
+import ApexCharts from "apexcharts";
 import Alpine from "alpinejs";
-
-window.Alpine = Alpine;
-
-Alpine.start();
 
 import.meta.glob(["../assets/**"]);
 
+if (window.Livewire) {
+    window.Livewire.start();
+}
+
+window.Alpine = Alpine;
+Alpine.start();
+
+// Pie Chart
 const getChartOptions = () => {
     return {
         series: [52.8, 47.2],
@@ -75,6 +79,7 @@ if (document.getElementById("pie-chart") && typeof ApexCharts !== "undefined") {
     chart.render();
 }
 
+// Bar Chart
 const options = {
     colors: ["#EC4F52", "#4680FF"],
     series: [
@@ -151,7 +156,7 @@ const options = {
             style: {
                 fontFamily: "Inter, sans-serif",
                 cssClass:
-                    "text-xs font-normal fill-gray-500 dark:fill-gray-400",
+                    "text-xs font-normal fill-gray-500",
             },
         },
         axisBorder: {

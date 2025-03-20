@@ -27,32 +27,36 @@ Route::get('/candidates', function () {
     return view('admin.candidates.display-candidates');
 })->middleware(['auth', 'verified'])->name('display-candidates');
 
-Route::get('/candidates/add', function () {
-    return view('admin.candidates.add-candidate');
+Route::get('/candidate/add', function () {
+    return view('admin.candidates.add-candidate-form');
 })->middleware(['auth', 'verified'])->name('add-candidate-page');
 
-Route::post('/candidates/add', function () {
-    return view('admin.candidates');
+Route::post('/candidate/add', function () {
+    return redirect()->route("display-candidates")->with("success", "Candidate added succesfully!");
 })->middleware(['auth', 'verified'])->name('add-candidate-post');
 
-Route::get('/candidates/edit', function () {
-    return view('admin.candidates.edit-candidate');
+Route::get('/candidate/edit', function () {
+    return view('admin.candidates.edit-candidate-form');
 })->middleware(['auth', 'verified'])->name('edit-candidate-page');
 
-Route::put('/candidates/edit', function () {
-    return view('admin.candidates');
-})->middleware(['auth', 'verified'])->name('edit-candidate-post');
+Route::put('/candidate/edit', function () {
+    return redirect()->route("display-candidates")->with("success", "Candidate updated succesfully!");
+})->middleware(['auth', 'verified'])->name('edit-candidate-put');
+
+Route::delete('/candidate/remove', function () {
+    return redirect()->route("display-candidates")->with("success", "Candidate deleted succesfully!");
+})->middleware(['auth', 'verified'])->name('remove-candidate-delete');
 
 Route::get('/voters', function () {
     return view('admin.voters.display-voters');
 })->middleware(['auth', 'verified'])->name('display-voters');
 
-Route::get('/voters/add', function () {
-    return view('admin.voters.add-voter');
+Route::get('/voter/add', function () {
+    return view('admin.voters.add-voter-form');
 })->middleware(['auth', 'verified'])->name('add-voter-page');
 
-Route::post('/voters/add', function () {
-    return view('admin.voters');
+Route::post('/voter/add', function () {
+    return redirect()->route("display-voters")->with("success", "Voter added succesfully!");
 })->middleware(['auth', 'verified'])->name('add-voter-post');
 
 Route::get('/voters/import', function () {
@@ -60,15 +64,15 @@ Route::get('/voters/import', function () {
 })->middleware(['auth', 'verified'])->name('import-voters-page');
 
 Route::post('/voters/import', function () {
-    return view('admin.voters');
+    return redirect()->route("display-voters")->with("success", "Voters list exported succesfully!");
 })->middleware(['auth', 'verified'])->name('import-voters-post');
 
-Route::get('/voters/remove', function () {
-    return view('admin.voters.remove-voters');
-})->middleware(['auth', 'verified'])->name('remove-voters-page');
+Route::delete('/voter/remove', function () {
+    return redirect()->route("display-voters")->with("success", "Voter deleted succesfully!");
+})->middleware(['auth', 'verified'])->name('remove-voter-delete');
 
 Route::delete('/voters/remove', function () {
-    return view('admin.voters');
+    return redirect()->route("display-voters")->with("success", "Voters deleted succesfully!");
 })->middleware(['auth', 'verified'])->name('remove-voters-delete');
 
 Route::middleware('auth')->group(function () {

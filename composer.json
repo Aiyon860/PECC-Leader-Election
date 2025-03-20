@@ -8,15 +8,18 @@
         "php": "^8.2",
         "blade-ui-kit/blade-ui-kit": "^0.7.0",
         "brunocfalcao/blade-feather-icons": "^4.0",
+        "codeat3/blade-carbon-icons": "^2.34",
         "codeat3/blade-eos-icons": "^1.15",
         "codeat3/blade-fluentui-system-icons": "^1.34",
         "codeat3/blade-iconpark": "^1.7",
         "codeat3/blade-line-awesome-icons": "^1.5",
+        "codeat3/blade-unicons": "^1.9",
         "davidhsianturi/blade-bootstrap-icons": "^1.5",
         "faisal50x/blade-ionicons": "^1.0",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
-        "owenvoke/blade-fontawesome": "^2.9"
+        "owenvoke/blade-fontawesome": "^2.9",
+        "rappasoft/laravel-livewire-tables": "^3.7"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.15",

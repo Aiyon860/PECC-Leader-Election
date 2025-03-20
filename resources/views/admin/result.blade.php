@@ -1,6 +1,5 @@
 <x-admin-layout>
-    <x-navbar-admin></x-navbar-admin>
-    <div class="grid grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
         <x-card-result :id="1"></x-card-result>
         <x-card-result :id="2"></x-card-result>
     </div>

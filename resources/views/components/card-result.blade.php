@@ -12,8 +12,8 @@
                 alt="gambar kandidat" draggable="false" />
         </div>
         <div class="p-6 flex flex-col justify-center items-center gap-4 border-2 border-gray-200 rounded-lg">
-            <h5 class="text-3xl poppins-regular tracking-tight text-gray-900">{{ $name }}</h5>
-            <div class="poppins-semibold text-5xl">
+            <h5 class="text-xl md:text-2xl xl:text-3xl poppins-regular tracking-tight text-gray-900">{{ $name }}</h5>
+            <div class="poppins-semibold text-2xl md:text-3xl xl:text-4xl">
                 25 votes
             </div>
         </div>
