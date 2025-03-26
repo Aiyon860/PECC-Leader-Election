@@ -2,9 +2,11 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Spatie\Permission\Models\Role;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -24,21 +26,47 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'username' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
+            'name' => $this->faker->name(),
+            'nim' => $this->faker->unique()->numerify('##########'), // Generate a 10-digit NIM
+            'password' => Hash::make('password'), // Default password, should be changed
+            'status' => $this->faker->randomElement(['Sudah', 'Belum']),
             'remember_token' => Str::random(10),
         ];
+        
     }
 
     /**
-     * Indicate that the model's email address should be unverified.
+     * Indicate that the user has voted.
+     *
+     * @return static
      */
-    public function unverified(): static
+    public function hasVoted()
     {
         return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
+            'status' => 'Sudah',
         ]);
     }
+
+    /**
+     * Indicate that the user has not voted.
+     *
+     * @return static
+     */
+    public function hasNotVoted()
+    {
+        return $this->state(fn (array $attributes) => [
+            'status' => 'Belum',
+        ]);
+    }
+
+    public function configure()
+    {
+        return $this->afterCreating(function(User $user) {
+            $role = Role::where('name', 'voter')->first();
+            if ($role) {
+                $user->assignRole($role);
+            }
+        });
+    }
+    
 }

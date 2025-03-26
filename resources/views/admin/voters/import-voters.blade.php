@@ -1,6 +1,6 @@
 <x-admin-layout>
     <div class="flex justify-start items-center gap-3">
-        <a href="{{ route('display-voters') }}" class="text-sm hover:underline">Voters</a>
+        <a href="{{ route('voters.index') }}" class="text-sm hover:underline">Voters</a>
         <x-fluentui-chevron-right-16 class="w-3 h-3" />
         <span class="text-sm text-gray-500">Import Excel</span>
     </div>
@@ -27,7 +27,7 @@
                 </label>
             </div>
             <div class="flex justify-start gap-2">
-                <form action="{{ route('import-voters-post') }}" method="post">
+                <form action="{{ route('voters.import') }}" method="post">
                     @csrf
                     <button type="button" @click="$dispatch('open-modal', 'confirmation-modal')"
                         class="w-24 text-white bg-indigo-500 hover:bg-indigo-700 transition-all p-2 rounded-full poppins-medium">

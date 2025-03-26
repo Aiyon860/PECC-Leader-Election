@@ -34,15 +34,15 @@
                             class="flex text-sm rounded-full focus:ring-4 focus:ring-gray-300"
                             aria-expanded="false" data-dropdown-toggle="dropdown-user">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 cursor-pointer"
-                                src="{{ Vite::asset('resources/assets/images/placeholder.jpg') }}"
-                                alt="Bordered avatar">
+                            <svg class="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 cursor-pointer" alt="Bordered avatar" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
+                            </svg>
                         </button>
                     </div>
                     <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-sm shadow-sm w-48"
                         id="dropdown-user">
                         <div class="px-4 py-3 text-sm text-gray-900">
-                            <div class="font-medium ">Admin 1</div>
+                            <div class="font-medium ">{{ Auth::user()->name }}</div>
                             <div class="truncate">Administrator</div>
                         </div>
                         <ul class="py-1" role="none">
@@ -69,7 +69,7 @@
     <div class="h-full px-3 pb-4 overflow-y-auto bg-white">
         <ul class="space-y-2 font-medium">
             <li>
-                <a href="{{ route('dashboard') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a href="{{ route('dashboard.create') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <svg class="w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
                         <path
@@ -79,15 +79,15 @@
                     </svg>
                     <span class="ms-3">Dashboard</span>
                 </a>
-                <a href="{{ route('result') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a href="{{ route('candidate.result') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <x-carbon-result class="w-5 h-5"/>
                     <span class="ms-3">Result</span>
                 </a>
-                <a href="{{ route('display-candidates') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a href="{{ route('candidate.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <x-bi-people-fill class="w-5 h-5"/>
                     <span class="ms-3">Candidates</span>
                 </a>
-                <a href="{{ route('display-voters') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a href="{{ route('voters.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <x-fas-people-group class="w-5 h-5"/>
                     <span class="ms-3">Voters</span>
                 </a>

@@ -10,10 +10,10 @@
         <div>
             <!-- Email Address -->
             <div>
-                <x-input-label for="username" :value="__('Username')" />
-                <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')"
-                    required autofocus autocomplete="username" placeholder="Enter your username" />
-                <x-input-error :messages="$errors->get('username')" class="mt-2" />
+                <x-input-label for="nim" :value="__('NIM')" />
+                <x-text-input id="nim" class="block mt-1 w-full" type="text" name="nim" :value="old('nim')"
+                    required autofocus autocomplete="nim" placeholder="Enter your NIM" />
+                <x-input-error :messages="$errors->get('nim')" class="mt-2" />
             </div>
 
             <!-- Password -->

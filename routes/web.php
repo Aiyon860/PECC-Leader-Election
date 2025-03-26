@@ -1,84 +1,62 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\VoteController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CandidateController;
 
-Route::get('/', function () {
-    return view('auth.login');
+Route::middleware('guest')->group(function () {
+    Route::get('/', [LoginController::class, 'create'])->name('login.create');
 });
 
-Route::get('/vote', function () {
-    return view('user.vote');
-})->middleware(['auth', 'verified'])->name('vote');
+Route::middleware(['auth', 'role:voter|candidate', 'check.vote'])->group(function() {
+    Route::get('/thank-you', [VoteController::class, 'thankYou'])->name('vote.thank-you');
+    Route::get('/vote', [CandidateController::class, 'index'])->name('vote.index');
+});
 
-Route::post('/thank-you', function () {
-    return view('user.thank-you');
-})->middleware(['auth', 'verified'])->name('thank-you');
+Route::middleware(['auth', 'check.vote'])->group(function () {
+    Route::post('/vote/store', [VoteController::class, 'store'])->name('vote.store');
+});
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'role:admin', 'permission:manage dashboard'])
+    ->get('/dashboard', [DashboardController::class, 'create'])
+    ->name('dashboard.create');
 
-Route::get('/result', function () {
-    return view('admin.result');
-})->middleware(['auth', 'verified'])->name('result');
+Route::middleware(['auth', 'role:admin', 'permission:manage result'])
+    ->get('/result', [CandidateController::class, 'index'])
+    ->name('candidate.result');
 
-Route::get('/candidates', function () {
-    return view('admin.candidates.display-candidates');
-})->middleware(['auth', 'verified'])->name('display-candidates');
+Route::middleware(['auth', 'role:admin', 'permission:manage candidates'])->group(function() {
+    Route::get('/candidates', [CandidateController::class, 'index'])->name('candidate.index');
+    Route::get('/candidates/votes', [CandidateController::class, 'getVotes'])->name('candidate.get-votes');
+    
+    Route::get('/candidate/add', [CandidateController::class, 'create'])->name('candidate.create');
+    Route::post('/candidate', [CandidateController::class, 'store'])->name('candidate.store');
+    
+    Route::get('/candidate/{candidate}/edit', [CandidateController::class, 'edit'])->name('candidate.edit');
+    Route::patch('/candidate/{candidate}', [CandidateController::class, 'update'])->name('candidate.update');
+    
+    Route::delete('/candidate/{candidate}', [CandidateController::class, 'destroy'])->name('candidate.destroy');
+});
 
-Route::get('/candidate/add', function () {
-    return view('admin.candidates.add-candidate-form');
-})->middleware(['auth', 'verified'])->name('add-candidate-page');
+Route::middleware(['auth', 'role:admin', 'permission:manage voters'])->group(function() {
+    Route::get('/voters', [UserController::class, 'create'])->name('voters.index');
+    
+    Route::get('/voter/add', [UserController::class, 'viewAddForm'])->name('voters.create');
+    Route::post('/voter', [UserController::class, 'store'])->name('voters.store');
+    
+    Route::get('/voters/import', [UserController::class, 'viewImportForm'])->name('voters.import');
+    Route::post('/voters/import', [UserController::class, 'importVoters'])->name('voters.import-store');
+});
 
-Route::post('/candidate/add', function () {
-    return redirect()->route("display-candidates")->with("success", "Candidate added succesfully!");
-})->middleware(['auth', 'verified'])->name('add-candidate-post');
-
-Route::get('/candidate/edit', function () {
-    return view('admin.candidates.edit-candidate-form');
-})->middleware(['auth', 'verified'])->name('edit-candidate-page');
-
-Route::put('/candidate/edit', function () {
-    return redirect()->route("display-candidates")->with("success", "Candidate updated succesfully!");
-})->middleware(['auth', 'verified'])->name('edit-candidate-put');
-
-Route::delete('/candidate/remove', function () {
-    return redirect()->route("display-candidates")->with("success", "Candidate deleted succesfully!");
-})->middleware(['auth', 'verified'])->name('remove-candidate-delete');
-
-Route::get('/voters', function () {
-    return view('admin.voters.display-voters');
-})->middleware(['auth', 'verified'])->name('display-voters');
-
-Route::get('/voter/add', function () {
-    return view('admin.voters.add-voter-form');
-})->middleware(['auth', 'verified'])->name('add-voter-page');
-
-Route::post('/voter/add', function () {
-    return redirect()->route("display-voters")->with("success", "Voter added succesfully!");
-})->middleware(['auth', 'verified'])->name('add-voter-post');
-
-Route::get('/voters/import', function () {
-    return view('admin.voters.import-voters');
-})->middleware(['auth', 'verified'])->name('import-voters-page');
-
-Route::post('/voters/import', function () {
-    return redirect()->route("display-voters")->with("success", "Voters list exported succesfully!");
-})->middleware(['auth', 'verified'])->name('import-voters-post');
-
-Route::delete('/voter/remove', function () {
-    return redirect()->route("display-voters")->with("success", "Voter deleted succesfully!");
-})->middleware(['auth', 'verified'])->name('remove-voter-delete');
-
-Route::delete('/voters/remove', function () {
-    return redirect()->route("display-voters")->with("success", "Voters deleted succesfully!");
-})->middleware(['auth', 'verified'])->name('remove-voters-delete');
-
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () {    
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';
+

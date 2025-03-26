@@ -8,4 +8,10 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    esbuild: {
+        supported: {
+            'top-level-await': true,
+        }
+    },
+    build: { assetsInlineLimit: 0 }
 });

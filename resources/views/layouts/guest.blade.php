@@ -41,8 +41,8 @@
                     <p class="text-wrap text-center">2025 © all right reserved. Polytechnic English Conversation Club</p>
                 </div>
             </div>
-            <div class="hidden lg:block right-side-login p-3">
-                <div class="h-screen w-full bg-[url('../assets/svgs/vote-image-login-with-gradient-bg.svg')] bg-cover bg-center rounded-2xl">
+            <div class="hidden lg:block right-side-login">
+                <div class="h-screen w-full bg-[url('../assets/svgs/vote-image-login-with-gradient-bg.svg')] bg-cover bg-center rounded-tl-3xl rounded-bl-3xl">
                 </div>
             </div>
         </div>
