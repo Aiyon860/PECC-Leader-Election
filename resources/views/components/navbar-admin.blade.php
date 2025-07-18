@@ -14,7 +14,7 @@
                     </svg>
                 </button>
                 <a href="https://flowbite.com" class="flex ms-2 md:me-24 justify-center items-center gap-2">
-                    <x-pecc-logo />
+                    <x-magyasaka-logo/>
                     <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap">PECC</span>
                 </a>
             </div>
