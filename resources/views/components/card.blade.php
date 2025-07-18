@@ -29,7 +29,7 @@
             <div class="flex flex-col mb-3">
                 <div class="flex gap-2 font-bold">
                     <x-iconpark-dot class="w-6 h-6" />
-                    <span>Visi:</span>
+                    <span>Misi:</span>
                 </div>
                 @php
                     $text = $mission;

@@ -8,7 +8,7 @@
 @if ($id)
     <div {{ $attributes }} class="flex flex-col gap-8 w-full bg-white rounded-lg shadow-sm p-5 poppins-regular">
         <div>
-            <img class="rounded-lg w-full lg:h-[30rem] xl:h-[50rem]"
+            <img class="rounded-lg w-full lg:h-[30rem] xl:h-[50rem] object-cover"
                 src="{{ asset('storage/' . $picture) }}"
                 alt="gambar kandidat" draggable="false" />
         </div>

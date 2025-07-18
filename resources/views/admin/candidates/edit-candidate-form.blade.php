@@ -141,6 +141,7 @@
                             </x-modal>
                             <a href="/candidates">
                                 <button
+                                    type="button"
                                     class="w-full sm:w-28 border border-black text-black bg-transparent hover:text-white hover:bg-black transition-all p-2 rounded-full">
                                     Cancel
                                 </button>
