@@ -103,10 +103,10 @@ class CandidateController extends Controller
     private function uploadCandidatePhoto($photo): string
     {
         $photoName = time() . '.' . $photo->extension();
-        $photoPath = 'images/' . $photoName;
-        $photo->move(public_path('images'), $photoName);
-        return $photoPath;
+        $photoPath = $photo->storeAs('images', $photoName, 'public');
+        return $photoPath; // returns 'images/xxx.jpg'
     }
+
 
     /**
      * Show the form for editing the specified candidate.
@@ -172,9 +172,8 @@ class CandidateController extends Controller
         $candidate = Candidate::findOrFail($candidateId);
         
         try {
-            // Delete the candidate's photo
-            if ($candidate->photo && file_exists(public_path($candidate->photo))) {
-                unlink(public_path($candidate->photo));
+            if ($candidate->photo && Storage::disk('public')->exists($candidate->photo)) {
+                Storage::disk('public')->delete($candidate->photo);
             }
             
             $candidate->delete();

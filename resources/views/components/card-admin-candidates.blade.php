@@ -10,7 +10,7 @@
     <div {{ $attributes }} class="flex flex-col gap-8 w-full bg-white rounded-lg shadow-sm p-5 poppins-regular" x-data="{ name: '{{ $name }}' }">
         <div>
             <img class="rounded-lg w-full object-cover lg:h-[30rem] xl:h-[50rem]"
-                src="{{ asset($picture) }}"
+                src="{{ asset('storage/' . $picture) }}"
                 alt="Kandidat {{ $name }}" draggable="false" />
         </div>
         <div class="flex flex-col gap-6">

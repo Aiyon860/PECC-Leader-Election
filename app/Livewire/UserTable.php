@@ -43,7 +43,7 @@ class UserTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Id", "user_id")
+            Column::make("No", "user_id")
                 ->sortable(),
             Column::make("Name", "name")
                 ->sortable()

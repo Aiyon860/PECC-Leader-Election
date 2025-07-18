@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
         
         // Pastikan file ada
         if (!File::exists($csvPath)) {
-            $this->command->error("File CSV tidak ditemukan di: $csvPath");
+            $this->command->error("File CSV not found on this path: $csvPath");
             return;
         }
 
