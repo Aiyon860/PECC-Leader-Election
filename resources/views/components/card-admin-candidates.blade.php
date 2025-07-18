@@ -18,7 +18,7 @@
             <div class="w-full flex justify-center items-center">
                 <h5 class="mb-2 text-2xl poppins-bold tracking-tight text-gray-900">{{ $name }}</h5>
             </div>
-            <div class="flex flex-col mb-3">
+            {{-- <div class="flex flex-col mb-3">
                 <div class="flex gap-2 font-bold">
                     <x-iconpark-dot class="w-6 h-6" />
                     <span>Visi:</span>
@@ -53,7 +53,7 @@
                         @endforeach
                     </ul>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="flex flex-col gap-4">
             <a href="{{ route("candidate.edit", $id) }}" class="w-full flex justify-center items-center gap-2 px-3 py-2 text-md font-medium text-white rounded-lg transition-colors bg-indigo-500 hover:bg-indigo-700">

@@ -17,7 +17,7 @@
             <div class="w-full flex justify-center items-center">
                 <h5 class="mb-2 text-2xl poppins-bold tracking-tight text-gray-900">{{ $name }}</h5>
             </div>
-            <div class="grid grid-rows-2 mb-3">
+            {{-- <div class="grid grid-rows-2 mb-3">
                 <div class="flex gap-2 font-bold">
                     <x-iconpark-dot class="w-6 h-6" />
                     <span>Visi:</span>
@@ -52,7 +52,7 @@
                         @endforeach
                     </ul>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div>
             <button @click="let wasSelected = selectedCard === {{ $id }};
