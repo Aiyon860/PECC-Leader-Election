@@ -12,13 +12,10 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Favicon -->
-        @php
-            $faviconPath = Vite::asset("resources/assets/favicon/");
-        @endphp
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ $faviconPath }}/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ $faviconPath }}/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ $faviconPath }}/favicon-16x16.png">
-        <link rel="manifest" href="{{ $faviconPath }}/site.webmanifest">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ Vite::asset('resources/assets/favicon/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ Vite::asset('resources/assets/favicon/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ Vite::asset('resources/assets/favicon/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ Vite::asset('resources/assets/favicon/site.webmanifest') }}">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
