@@ -24,7 +24,7 @@
         <div class="grid lg:grid-cols-2 min-h-screen bg-gray-100">
             <div class="left-side-login grid pt-6 sm:pt-0">
                 <div class="flex gap-4 p-8 justify-center lg:justify-start">
-                    <x-pecc-logo/>
+                    <x-magyasaka-logo/>
                     <x-polines-logo/>
                 </div>
 
