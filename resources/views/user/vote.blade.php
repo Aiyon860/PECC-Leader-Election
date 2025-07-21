@@ -17,6 +17,9 @@
                             </form></li>
                         </ul>
                     </div> --}}
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-gray-800 mb-8 pt-8">
+        Pemilihan Ketua Kelas<br>Magyasaka
+    </h1>
     <div class="p-8 md:p-16" x-data="{
         selectedCard: null,
         selectedName: null,
